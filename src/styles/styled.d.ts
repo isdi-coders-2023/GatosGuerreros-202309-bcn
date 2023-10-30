@@ -6,7 +6,7 @@ declare module "styled-components" {
     padding: string;
 
     colors: {
-      main: string;
+      primary: string;
       secondary: string;
       teriary: string;
       accent: string;
@@ -16,11 +16,8 @@ declare module "styled-components" {
 
     typography: {
       fontFamily: string;
-      serifRegular: string;
-      serifItalic: string;
-      sansSerifRegular: string;
-      sansSerifMedium: string;
-      sansSerifBold: string;
+      serif: string;
+      sansSerif: string;
     };
   }
 }
