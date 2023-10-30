@@ -6,10 +6,13 @@ import { mainTheme } from "./styles/MainTheme";
 import GlobalStyle from "./styles/GlobalStyle";
 import { BrowserRouter } from "react-router-dom";
 
-
-
 ReactDOM.createRoot(document.getElementById("root")!).render(
   <React.StrictMode>
-    <App />
+    <ThemeProvider theme={mainTheme}>
+      <BrowserRouter>
+        <GlobalStyle />
+        <App />
+      </BrowserRouter>
+    </ThemeProvider>
   </React.StrictMode>,
 );
