@@ -1,12 +1,18 @@
-import * as React from "react";
-import { render, screen } from "@testing-library/react";
+import { customRender } from "../../tests/test-utils";
+import { screen } from "@testing-library/react";
 import Header from "./Header";
+import "@testing-library/jest-dom";
 
 describe("Given a Header component", () => {
   describe("When rendered ", () => {
-    test("Then it reads `Giblipedia` on the screen", () => {
-      render(<Header />);
-      expect(screen.getByText("Giblipedia")).toBeInTheDocument();
+    beforeEach(() => {
+      customRender(<Header />);
+    });
+    test("Then it reads `Ghiblipedia` on the screen", async () => {
+      const titleText = "Ghiblipedia";
+      const actualValue = await screen.findByText(titleText);
+
+      expect(actualValue).toBeInTheDocument();
     });
   });
 });
