@@ -2,7 +2,7 @@ const HomePage = (): React.ReactElement => {
   return (
     <>
       <img
-        src="/public/images/hero_picture.webp"
+        src="/images/hero_picture.webp"
         alt="foto de la homep"
         width={320}
         height={652}
