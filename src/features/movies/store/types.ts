@@ -15,4 +15,5 @@ export interface MovieStructure {
 
 export interface MovieContextStructure {
   movies: MovieStructure[];
+  loadMovies: (movies: MovieStructure[]) => void;
 }

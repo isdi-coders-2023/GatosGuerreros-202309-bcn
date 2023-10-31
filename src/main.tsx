@@ -5,14 +5,17 @@ import { ThemeProvider } from "styled-components";
 import { mainTheme } from "./styles/MainTheme";
 import GlobalStyle from "./styles/GlobalStyle";
 import { BrowserRouter } from "react-router-dom";
+import MovieProviderWrapper from "./features/movies/store/MoviesProviderWrapper";
 
 ReactDOM.createRoot(document.getElementById("root")!).render(
   <React.StrictMode>
-    <ThemeProvider theme={mainTheme}>
-      <BrowserRouter>
-        <GlobalStyle />
-        <App />
-      </BrowserRouter>
-    </ThemeProvider>
+    <MovieProviderWrapper>
+      <ThemeProvider theme={mainTheme}>
+        <BrowserRouter>
+          <GlobalStyle />
+          <App />
+        </BrowserRouter>
+      </ThemeProvider>
+    </MovieProviderWrapper>
   </React.StrictMode>,
 );
