@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 const NavigationStyled = styled.nav`
-  ul {
+  .nav-icons {
     display: flex;
     gap: 25px;
   }
@@ -11,7 +11,7 @@ const NavigationStyled = styled.nav`
     display: flex;
     flex-direction: column;
     align-items: center;
-    background-color: black;
+    border: 1px solid;
   }
 
   .add-icon {
@@ -20,7 +20,7 @@ const NavigationStyled = styled.nav`
   }
 
   .home-icon {
-    width: 28px;
+    width: 29px;
   }
 
   .icon-text {
