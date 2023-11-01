@@ -1,6 +1,7 @@
-import { render, screen } from "@testing-library/react";
+import { screen } from "@testing-library/react";
 import "@testing-library/jest-dom";
 import HomePage from "./HomePage";
+import { customRender } from "../utils/customRender";
 
 describe("Given a HomePage", () => {
   describe("When it is called", () => {
@@ -8,7 +9,7 @@ describe("Given a HomePage", () => {
       const headingText =
         "The most curated repository of all Studio Ghibli films";
 
-      render(<HomePage />);
+      customRender(<HomePage />);
 
       const heading = screen.getByRole("heading", {
         name: headingText,
@@ -20,7 +21,7 @@ describe("Given a HomePage", () => {
     test("It should show the hero image", () => {
       const alternativeText = "imagen de Chihiro mirando al horizonte";
 
-      render(<HomePage />);
+      customRender(<HomePage />);
       const image = screen.getByAltText(alternativeText);
 
       expect(image).toBeInTheDocument();
