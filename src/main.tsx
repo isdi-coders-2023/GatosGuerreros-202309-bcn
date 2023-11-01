@@ -6,6 +6,8 @@ import { mainTheme } from "./styles/mainTheme";
 import GlobalStyle from "./styles/GlobalStyle";
 import { BrowserRouter } from "react-router-dom";
 import MovieProviderWrapper from "./features/movies/store/MoviesProviderWrapper";
+import "@fontsource/dm-sans";
+import "@fontsource/dm-serif-text";
 
 ReactDOM.createRoot(document.getElementById("root")!).render(
   <React.StrictMode>
