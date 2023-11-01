@@ -1,6 +1,6 @@
-import { MovieStructure } from "../types";
+import { MovieStructureFiltered } from "../types";
 
 export interface MovieContextStructure {
-  movies: MovieStructure[];
-  loadMovies: (movies: MovieStructure[]) => void;
+  movies: MovieStructureFiltered[];
+  loadMovies: (movies: MovieStructureFiltered[]) => void;
 }
