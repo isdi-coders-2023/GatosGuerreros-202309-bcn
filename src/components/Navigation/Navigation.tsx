@@ -33,7 +33,7 @@ const NavigationBar = ({ path }: NavigationProps): React.ReactElement => {
           <a className="nav-icon" href="/add">
             <img
               className="add-icon"
-              alt={isAdd ? "Add icon" : "Add active icon"}
+              alt={isAdd ? "Add active icon" : "Add icon"}
               src={isAdd ? ActiveAdd : Add}
             />
             <span
