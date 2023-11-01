@@ -2,7 +2,7 @@ import { PropsWithChildren, useCallback, useState } from "react";
 import MoviesContext from "./MoviesContext";
 import { MovieStructure } from "./types";
 
-const MovieProviderWrapper = ({
+const MoviesProviderWrapper = ({
   children,
 }: PropsWithChildren): React.ReactElement => {
   const [movies, setMovies] = useState<MovieStructure[]>([]);
@@ -18,4 +18,4 @@ const MovieProviderWrapper = ({
   );
 };
 
-export default MovieProviderWrapper;
+export default MoviesProviderWrapper;

@@ -1,11 +1,11 @@
 import { Navigate, Route, Routes } from "react-router-dom";
 import HomePage from "../../pages/HomePage";
-import MovieList from "../MoviesList/MoviesList";
+import MoviesList from "../MoviesList/MoviesList";
 
 const App = (): React.ReactElement => {
   return (
     <>
-      <MovieList></MovieList>
+      <MoviesList></MoviesList>
       <Routes>
         <Route path="/" element={<Navigate to="/home" />} />
         <Route path="/home" element={<HomePage />} />

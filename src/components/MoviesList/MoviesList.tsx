@@ -2,7 +2,7 @@ import { useContext } from "react";
 import MoviesContext from "../../features/movies/store/MoviesContext";
 import MoviesListStyled from "./MoviesListStyled";
 
-const MovieList = (): React.ReactElement => {
+const MoviesList = (): React.ReactElement => {
   const { movies } = useContext(MoviesContext);
 
   return (
@@ -15,4 +15,4 @@ const MovieList = (): React.ReactElement => {
     </MoviesListStyled>
   );
 };
-export default MovieList;
+export default MoviesList;
