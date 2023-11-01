@@ -1,4 +1,4 @@
-import { customRender } from "../../tests/test-utils";
+import { customRender } from "../../utils/customRender";
 import { screen } from "@testing-library/react";
 import Header from "./Header";
 import "@testing-library/jest-dom";
