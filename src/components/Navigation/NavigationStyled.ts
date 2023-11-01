@@ -15,6 +15,15 @@ const NavigationStyled = styled.nav`
 
   .nav-icon {
     width: 30px;
+    &.home {
+      background-color: red;
+      &.active {
+        background-color: purple;
+      }
+    }
+    &.add {
+      background-color: green;
+    }
   }
 
   .add-icon {
@@ -29,6 +38,9 @@ const NavigationStyled = styled.nav`
     font-family: ${({ theme }) => theme.typography.serif};
     color: ${({ theme }) => theme.colors.primary};
     font-size: 1rem;
+    &.active {
+      color: black;
+    }
   }
 `;
 
