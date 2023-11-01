@@ -11,23 +11,24 @@ const NavigationStyled = styled.nav`
     display: flex;
     flex-direction: column;
     align-items: center;
-    border: 1px solid;
+  }
+
+  .nav-icon {
+    width: 30px;
   }
 
   .add-icon {
-    width: 29px;
-    padding-left: 3px;
+    margin-left: 2px;
   }
 
   .home-icon {
-    width: 29px;
+    margin-left: 5px;
   }
 
   .icon-text {
     font-family: ${({ theme }) => theme.typography.serif};
     color: ${({ theme }) => theme.colors.primary};
     font-size: 1rem;
-    margin-top: -2px;
   }
 `;
 

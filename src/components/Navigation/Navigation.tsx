@@ -15,32 +15,34 @@ const NavigationBar = ({ path }: NavigationProps): React.ReactElement => {
     <NavigationStyled>
       <ul className="nav-icons">
         <li className="icon-container">
-          <a className="home-icon" href="index.html">
+          <a className="nav-icon" href="/home">
             <img
+              className="home-icon"
               alt={isHome ? "Home active icon" : "Home icon"}
               src={isHome ? ActiveHome : Home}
             />
+            <span
+              className="icon-text"
+              style={isHome ? { color: "#e9F279" } : { color: "#fdfdf9" }}
+            >
+              Home
+            </span>
           </a>
-          <span
-            className="icon-text"
-            style={isHome ? { color: "#e9F279" } : { color: "#fdfdf9" }}
-          >
-            Home
-          </span>
         </li>
         <li className="icon-container">
-          <a className="add-icon" href="index.html">
+          <a className="nav-icon" href="/add">
             <img
-              alt={isAdd ? "Add icon" : "Add  active icon"}
+              className="add-icon"
+              alt={isAdd ? "Add icon" : "Add active icon"}
               src={isAdd ? ActiveAdd : Add}
             />
+            <span
+              className="icon-text"
+              style={isAdd ? { color: "#e9F279" } : { color: "#fdfdf9" }}
+            >
+              Add
+            </span>
           </a>
-          <span
-            className="icon-text"
-            style={isAdd ? { color: "#e9F279" } : { color: "#fdfdf9" }}
-          >
-            Add
-          </span>
         </li>
       </ul>
     </NavigationStyled>
