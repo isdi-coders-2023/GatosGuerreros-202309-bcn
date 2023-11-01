@@ -2,8 +2,8 @@ const HomePage = (): React.ReactElement => {
   return (
     <>
       <img
-        src="/public/images/hero_picture.webp"
-        alt="foto de la homep"
+        src="/images/hero_picture.webp"
+        alt="imagen de Chihiro mirando al horizonte"
         width={320}
         height={652}
       />
