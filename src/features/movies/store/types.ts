@@ -1,12 +1,4 @@
-export interface MovieStructure {
-  id: number;
-  title: string;
-  movie_banner: string;
-  description: string;
-  director: string;
-  release_date: string;
-  running_time: string;
-}
+import { MovieStructure } from "../types";
 
 export interface MovieContextStructure {
   movies: MovieStructure[];
