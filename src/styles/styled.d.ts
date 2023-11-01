@@ -12,6 +12,7 @@ declare module "styled-components" {
       accent: string;
       success: string;
       danger: string;
+      cardButton: string;
     };
 
     typography: {

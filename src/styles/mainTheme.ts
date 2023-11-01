@@ -15,6 +15,7 @@ const mainTheme: DefaultTheme = {
     secondary: "#295e60",
     teriary: "#eefeff",
     success: "#fdfdf9",
+    cardButton: "#307E82",
   },
 };
 
