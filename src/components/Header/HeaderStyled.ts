@@ -6,6 +6,7 @@ const HeaderStyled = styled.header`
   align-items: center;
   backdrop-filter: blur(2px);
   height: 96px;
+  background-color: ${({ theme }) => theme.colors.secondary};
 
   .header {
     &__title {
