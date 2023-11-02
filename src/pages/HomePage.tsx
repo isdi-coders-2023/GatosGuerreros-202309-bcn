@@ -2,15 +2,22 @@ const HomePage = (): React.ReactElement => {
   return (
     <>
       <img
-        src="/images/hero_picture.webp"
+        src="/images/homepage-hero.webp"
         alt="imagen de Chihiro mirando al horizonte"
         width={320}
         height={652}
+        className="hero-image"
       />
-      <h3 className="hero__Text">
+      <span className="hero__text">
         The most curated repository of all Studio Ghibli films
-      </h3>
-      <span className="heroSymbol">↓</span>
+      </span>
+      <img
+        className="hero-symbol"
+        src="/images/icons/scroll-down-symbol.svg"
+        alt="scroll down to find the movies list"
+        width={60}
+        height={57.6}
+      />
     </>
   );
 };
