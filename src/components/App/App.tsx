@@ -4,10 +4,9 @@ import MoviesList from "../MoviesList/MoviesList";
 import Header from "../Header/Header";
 
 const App = (): React.ReactElement => {
-  const path = window.location.pathname;
   return (
     <>
-      <Header path={path} />
+      <Header />
       <MoviesList></MoviesList>
       <Routes>
         <Route path="/" element={<Navigate to="/home" />} />
