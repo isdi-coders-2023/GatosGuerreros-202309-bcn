@@ -1,8 +1,10 @@
 import React, { ReactElement } from "react";
 import { render, RenderOptions } from "@testing-library/react";
 import { ThemeProvider } from "styled-components";
-import { mainTheme } from "../styles/MainTheme";
+import { mainTheme } from "../styles/mainTheme";
 import GlobalStyle from "../styles/GlobalStyle";
+import { BrowserRouter } from "react-router-dom";
+import MovieProviderWrapper from "../features/movies/store/MoviesProviderWrapper";
 
 export const customRender = (
   ui: ReactElement,
@@ -10,10 +12,14 @@ export const customRender = (
 ) => {
   const AllTheProviders = ({ children }: { children: React.ReactNode }) => {
     return (
-      <ThemeProvider theme={mainTheme}>
-        <GlobalStyle />
-        {children}
-      </ThemeProvider>
+      <MovieProviderWrapper>
+        <ThemeProvider theme={mainTheme}>
+          <BrowserRouter>
+            <GlobalStyle />
+            {children}
+          </BrowserRouter>
+        </ThemeProvider>
+      </MovieProviderWrapper>
     );
   };
 
