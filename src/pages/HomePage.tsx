@@ -1,6 +1,7 @@
 import { useContext, useEffect } from "react";
 import MoviesContext from "../features/movies/store/MoviesContext";
 import MoviesList from "../components/MoviesList/MoviesList";
+import HomePageStyled from "./HomePageStyled";
 
 const HomePage = (): React.ReactElement => {
   const { loadMovies } = useContext(MoviesContext);
@@ -29,28 +30,30 @@ const HomePage = (): React.ReactElement => {
     ]);
   }, [loadMovies]);
   return (
-    <>
-      <div className="hero">
+    <HomePageStyled>
+      <section className="hero">
         <img
           src="/images/homepage-hero.webp"
-          alt="imagen de Chihiro mirando al horizonte"
+          alt="Chihiro looking to the horizon"
           width={320}
           height={652}
           className="hero__image"
         />
-        <h2 className="hero__text">
+        <h2 className="hero__text main-container">
           The most curated repository of all Studio Ghibli films
         </h2>
         <img
-          className="hero__symbol"
-          src="/images/icons/scroll-down-symbol.svg"
+          className="hero__symbol "
+          src="/images/icons/scroll-down-symbol.webp"
           alt="scroll down to find the movies list"
           width={60}
           height={57.6}
         />
-      </div>
-      <MoviesList />
-    </>
+      </section>
+      <section className="main-container">
+        <MoviesList />
+      </section>
+    </HomePageStyled>
   );
 };
 
