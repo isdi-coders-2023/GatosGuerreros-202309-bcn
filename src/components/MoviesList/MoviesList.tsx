@@ -1,6 +1,7 @@
 import { useContext } from "react";
 import MoviesContext from "../../features/movies/store/MoviesContext";
 import MoviesListStyled from "./MoviesListStyled";
+import MovieCard from "../MovieCard/MovieCard";
 
 const MoviesList = (): React.ReactElement => {
   const { movies } = useContext(MoviesContext);
@@ -9,7 +10,7 @@ const MoviesList = (): React.ReactElement => {
     <MoviesListStyled className="movies-list">
       {movies.map((movie) => (
         <li key={movie.id}>
-          <div className="movie-card"></div>
+          <MovieCard movieCard={movie} />
         </li>
       ))}
     </MoviesListStyled>

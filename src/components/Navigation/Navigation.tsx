@@ -1,48 +1,36 @@
 import NavigationStyled from "./NavigationStyled";
-import ActiveHome from "../../../public/images/icons/home-active-icon.svg";
-import Home from "../../../public/images/icons/home-icon.svg";
-import ActiveAdd from "../../../public/images/icons/add-active-icon.svg";
-import Add from "../../../public/images/icons/add-icon.svg";
+import { NavLink } from "react-router-dom";
+import { useLocation } from "react-router-dom";
 
-interface NavigationProps {
-  path: string;
-}
+const NavigationBar = (): React.ReactElement => {
+  const { pathname } = useLocation();
 
-const NavigationBar = ({ path }: NavigationProps): React.ReactElement => {
-  const isHome = path === "home";
-  const isAdd = path === "add";
   return (
     <NavigationStyled>
-      <ul className="nav-icons">
-        <li className="icon-container">
-          <a className="nav-icon" href="/home">
+      <ul className="nav__icons">
+        <li className="icon__container">
+          <NavLink className="nav__icon" to="/home">
             <img
-              className="home-icon"
-              alt={isHome ? "Home active icon" : "Home icon"}
-              src={isHome ? ActiveHome : Home}
+              className="home__icon"
+              alt="Home Icon"
+              src={`images/icons/${
+                pathname === "/home" ? "home-active-icon" : "home-icon"
+              }.svg`}
             />
-            <span
-              className="icon-text"
-              style={isHome ? { color: "#e9F279" } : { color: "#fdfdf9" }}
-            >
-              Home
-            </span>
-          </a>
+            <span className="icon__text">Home</span>
+          </NavLink>
         </li>
-        <li className="icon-container">
-          <a className="nav-icon" href="/add">
+        <li className="icon__container">
+          <NavLink className="nav__icon" to="/add">
             <img
-              className="add-icon"
-              alt={isAdd ? "Add active icon" : "Add icon"}
-              src={isAdd ? ActiveAdd : Add}
+              className="home__icon"
+              alt="Home Icon"
+              src={`images/icons/${
+                pathname === "/add" ? "add-active-icon" : "add-icon"
+              }.svg`}
             />
-            <span
-              className="icon-text"
-              style={isAdd ? { color: "#e9F279" } : { color: "#fdfdf9" }}
-            >
-              Add
-            </span>
-          </a>
+            <span className="icon__text add">Add</span>
+          </NavLink>
         </li>
       </ul>
     </NavigationStyled>

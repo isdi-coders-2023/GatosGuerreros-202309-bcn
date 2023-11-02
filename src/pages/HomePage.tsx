@@ -12,9 +12,9 @@ const HomePage = (): React.ReactElement => {
         director: "Hayao Miyazaki",
         id: 1,
         title: "My Neighbor Totoro",
-        release_date: "",
-        running_time: "",
-        movie_banner:
+        releaseDate: "",
+        runningTime: "",
+        movieBanner:
           "https://image.tmdb.org/t/p/original/etqr6fOOCXQOgwrQXaKwenTSuzx.jpg",
       },
       {
@@ -22,9 +22,9 @@ const HomePage = (): React.ReactElement => {
         director: "Isao Takahata",
         id: 2,
         title: "Only Yesterday",
-        release_date: "",
-        running_time: "",
-        movie_banner:
+        releaseDate: "",
+        runningTime: "",
+        movieBanner:
           "https://image.tmdb.org/t/p/w533_and_h300_bestv2/isCrlWWI4JrdLKAUAwFb5cjAsH4.jpg",
       },
     ]);
