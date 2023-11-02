@@ -1,6 +1,7 @@
-import { fireEvent, screen } from "@testing-library/dom";
+import { screen } from "@testing-library/dom";
 import { customRender } from "../../utils/customRender";
 import Button from "./Button";
+import userEvent from "@testing-library/user-event";
 
 describe("Given a Button component", () => {
   describe("When page loads", () => {
@@ -41,10 +42,11 @@ describe("Given a Button component", () => {
 
   describe("When button is clicked'", () => {
     test("Then click event is triggered", async () => {
+      const user = userEvent.setup();
       const mockClick = vitest.fn();
       customRender(<Button className="" text="" actionOnClick={mockClick} />);
       const button = await screen.findByRole("button");
-      fireEvent.click(button);
+      await user.click(button);
       expect(mockClick).toHaveBeenCalledOnce();
     });
   });
