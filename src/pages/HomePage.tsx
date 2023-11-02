@@ -30,17 +30,26 @@ const HomePage = (): React.ReactElement => {
   }, [loadMovies]);
   return (
     <>
-      <img
-        src="/images/hero_picture.webp"
-        alt="imagen de Chihiro mirando al horizonte"
-        width={320}
-        height={652}
-      />
-      <h2 className="hero__Text">
-        The most curated repository of all Studio Ghibli films
-      </h2>
-      <span className="heroSymbol">↓</span>
-      <MoviesList></MoviesList>
+      <div className="hero">
+        <img
+          src="/images/homepage-hero.webp"
+          alt="imagen de Chihiro mirando al horizonte"
+          width={320}
+          height={652}
+          className="hero__image"
+        />
+        <h2 className="hero__text">
+          The most curated repository of all Studio Ghibli films
+        </h2>
+        <img
+          className="hero__symbol"
+          src="/images/icons/scroll-down-symbol.svg"
+          alt="scroll down to find the movies list"
+          width={60}
+          height={57.6}
+        />
+      </div>
+      <MoviesList />
     </>
   );
 };
