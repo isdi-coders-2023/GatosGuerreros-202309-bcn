@@ -4,9 +4,9 @@ const mainTheme: DefaultTheme = {
   borderRadius: "5px",
   padding: "16px",
   typography: {
-    fontFamily: ["DM Sans", "system-ui", "-apple-system", "Segoe UI"].join(","),
-    sansSerif: ["DM Sans", "sans-serif"].join(","),
-    serif: ["DM Serif Text", "serif"].join(","),
+    fontFamily: "DM Sans, system-ui, -apple-system, Segoe UI",
+    sansSerif: "DM Sans , sans-serif",
+    serif: "DM Serif Text, serif",
   },
   colors: {
     accent: "#e9f279",
@@ -15,6 +15,7 @@ const mainTheme: DefaultTheme = {
     secondary: "#295e60",
     teriary: "#eefeff",
     success: "#fdfdf9",
+    cardButton: "#307E82",
   },
 };
 

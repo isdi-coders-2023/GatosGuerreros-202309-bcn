@@ -1,18 +1,22 @@
-import { PropsWithChildren, useCallback, useState } from "react";
+import { PropsWithChildren, useCallback, useState, useMemo } from "react";
 import MoviesContext from "./MoviesContext";
-import { MovieStructure } from "./types";
+import { MovieStructureFiltered } from "../types";
 
 const MoviesProviderWrapper = ({
   children,
 }: PropsWithChildren): React.ReactElement => {
-  const [movies, setMovies] = useState<MovieStructure[]>([]);
+  const [movies, setMovies] = useState<MovieStructureFiltered[]>([]);
 
-  const loadMovies = useCallback((movies: MovieStructure[]) => {
+  const loadMovies = useCallback((movies: MovieStructureFiltered[]) => {
     setMovies(movies);
   }, []);
 
+  const moviesContextValue = useMemo(
+    () => ({ movies, loadMovies }),
+    [loadMovies, movies],
+  );
   return (
-    <MoviesContext.Provider value={{ movies, loadMovies }}>
+    <MoviesContext.Provider value={moviesContextValue}>
       {children}
     </MoviesContext.Provider>
   );

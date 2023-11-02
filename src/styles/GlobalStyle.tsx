@@ -3,15 +3,16 @@ import { createGlobalStyle } from "styled-components";
 const GlobalStyle = createGlobalStyle`
   *, ::before, ::after {
     box-sizing: border-box;
-
   }
 
   body {
     margin: 0;
-    font-size: 1rem;
+    font-family: ${({ theme }) => theme.typography.fontFamily};
   }
   
-  h1,h2,h3 {
+  h1,
+  h2,
+  h3 {
     margin: 0;
   }
 
@@ -39,7 +40,6 @@ const GlobalStyle = createGlobalStyle`
   img{
     max-width: 100%;
   }
-
 `;
 
 export default GlobalStyle;
