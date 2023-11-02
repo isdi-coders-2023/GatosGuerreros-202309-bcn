@@ -15,8 +15,8 @@ const MovieCard = ({
         className="movie-card__picture"
         src={movieBanner}
         alt={title}
-        width=""
-        height=""
+        width={295}
+        height={265}
       />
       <div className="movie-card__footer">
         <div className="movie-card__info">
