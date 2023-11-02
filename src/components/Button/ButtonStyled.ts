@@ -15,12 +15,6 @@ const ButtonStyled = styled.button`
 
   &.button {
     &--inverted {
-      background-color: ${({ theme }) => theme.colors.primary};
-      color: ${({ theme }) => theme.colors.secondary};
-      border: solid 1px ${({ theme }) => theme.colors.secondary};
-    }
-
-    &--inverted {
       background-color: ${({ theme }) => theme.colors.teriary};
       color: ${({ theme }) => theme.colors.secondary};
       border: solid 1px ${({ theme }) => theme.colors.secondary};
