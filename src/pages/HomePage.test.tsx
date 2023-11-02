@@ -19,7 +19,7 @@ describe("Given a HomePage", () => {
     });
 
     test("It should show the hero image", () => {
-      const alternativeText = "imagen de Chihiro mirando al horizonte";
+      const alternativeText = "Chihiro looking to the horizon";
 
       customRender(<HomePage />);
       const image = screen.getByAltText(alternativeText);

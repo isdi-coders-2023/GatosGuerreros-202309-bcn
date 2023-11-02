@@ -1,6 +1,7 @@
 import { useContext, useEffect } from "react";
 import MoviesContext from "../features/movies/store/MoviesContext";
 import MoviesList from "../components/MoviesList/MoviesList";
+import HomePageStyled from "./HomePageStyled";
 
 const HomePage = (): React.ReactElement => {
   const { loadMovies } = useContext(MoviesContext);
@@ -29,11 +30,11 @@ const HomePage = (): React.ReactElement => {
     ]);
   }, [loadMovies]);
   return (
-    <>
-      <div className="hero">
+    <HomePageStyled>
+      <section className="hero">
         <img
           src="/images/homepage-hero.webp"
-          alt="imagen de Chihiro mirando al horizonte"
+          alt="Chihiro looking to the horizon"
           width={320}
           height={652}
           className="hero__image"
@@ -48,9 +49,9 @@ const HomePage = (): React.ReactElement => {
           width={60}
           height={57.6}
         />
-      </div>
+      </section>
       <MoviesList />
-    </>
+    </HomePageStyled>
   );
 };
 
