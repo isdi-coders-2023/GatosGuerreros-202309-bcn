@@ -1,4 +1,4 @@
-import { PropsWithChildren, useCallback, useState } from "react";
+import { PropsWithChildren, useCallback, useState, useMemo } from "react";
 import MoviesContext from "./MoviesContext";
 import { MovieStructure } from "./types";
 
@@ -11,8 +11,12 @@ const MoviesProviderWrapper = ({
     setMovies(movies);
   }, []);
 
+  const moviesContextValue = useMemo(
+    () => ({ movies, loadMovies }),
+    [loadMovies, movies],
+  );
   return (
-    <MoviesContext.Provider value={{ movies, loadMovies }}>
+    <MoviesContext.Provider value={moviesContextValue}>
       {children}
     </MoviesContext.Provider>
   );
