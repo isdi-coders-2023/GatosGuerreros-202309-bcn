@@ -39,18 +39,20 @@ const HomePage = (): React.ReactElement => {
           height={652}
           className="hero__image"
         />
-        <h2 className="hero__text">
+        <h2 className="hero__text main-container">
           The most curated repository of all Studio Ghibli films
         </h2>
         <img
-          className="hero__symbol"
-          src="/images/icons/scroll-down-symbol.svg"
+          className="hero__symbol "
+          src="/images/icons/scroll-down-symbol.webp"
           alt="scroll down to find the movies list"
           width={60}
           height={57.6}
         />
       </section>
-      <MoviesList />
+      <section className="main-container">
+        <MoviesList />
+      </section>
     </HomePageStyled>
   );
 };

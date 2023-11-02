@@ -2,6 +2,11 @@ import styled from "styled-components";
 
 const HomePageStyled = styled.section`
   background-color: ${({ theme }) => theme.colors.teriary};
+
+  .main-container {
+    padding: 0 16px;
+  }
+
   .hero {
     position: relative;
     display: flex;
@@ -24,6 +29,8 @@ const HomePageStyled = styled.section`
     }
 
     &__symbol {
+      width: 15%;
+      height: auto;
       align-items: center;
       position: absolute;
       top: 85%;
