@@ -1,34 +1,40 @@
 import styled from "styled-components";
 
 const NavigationStyled = styled.nav`
-  .nav-icons {
+  .nav__icons {
     display: flex;
     gap: 25px;
   }
 
-  .icon-container,
-  .icon-container {
+  .icon__container {
     display: flex;
     flex-direction: column;
     align-items: center;
   }
 
-  .nav-icon {
+  .nav__icon {
     width: 30px;
+    color: ${({ theme }) => theme.colors.primary};
   }
 
-  .add-icon {
+  .active {
+    color: ${({ theme }) => theme.colors.accent};
+  }
+
+  .add__icon {
     margin-left: 2px;
   }
 
-  .home-icon {
+  .home__icon {
     margin-left: 5px;
   }
 
-  .icon-text {
+  .icon__text {
     font-family: ${({ theme }) => theme.typography.serif};
-    color: ${({ theme }) => theme.colors.primary};
     font-size: 1rem;
+    &.add {
+      padding-left: 3px;
+    }
   }
 `;
 
