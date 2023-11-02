@@ -3,20 +3,19 @@ import ActiveHome from "../../../public/images/icons/home-active-icon.svg";
 import Home from "../../../public/images/icons/home-icon.svg";
 import ActiveAdd from "../../../public/images/icons/add-active-icon.svg";
 import Add from "../../../public/images/icons/add-icon.svg";
-import { NavLink } from "react-router-dom";
 
 interface NavigationProps {
   path: string;
 }
 
 const NavigationBar = ({ path }: NavigationProps): React.ReactElement => {
-  const isHome = path === "/home";
-  const isAdd = path === "/add";
+  const isHome = path === "home";
+  const isAdd = path === "add";
   return (
     <NavigationStyled>
       <ul className="nav-icons">
         <li className="icon-container">
-          <NavLink className="nav-icon" to="/home">
+          <a className="nav-icon" href="/home">
             <img
               className="home-icon"
               alt={isHome ? "Home active icon" : "Home icon"}
@@ -28,10 +27,10 @@ const NavigationBar = ({ path }: NavigationProps): React.ReactElement => {
             >
               Home
             </span>
-          </NavLink>
+          </a>
         </li>
         <li className="icon-container">
-          <NavLink className="nav-icon" to="/add">
+          <a className="nav-icon" href="/add">
             <img
               className="add-icon"
               alt={isAdd ? "Add active icon" : "Add icon"}
@@ -43,7 +42,7 @@ const NavigationBar = ({ path }: NavigationProps): React.ReactElement => {
             >
               Add
             </span>
-          </NavLink>
+          </a>
         </li>
       </ul>
     </NavigationStyled>
