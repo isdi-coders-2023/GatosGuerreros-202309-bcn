@@ -1,20 +1,16 @@
-import { useCallback, useContext } from "react";
 import {
   MovieStructure,
   MovieStructureFiltered,
 } from "../features/movies/types";
-import MoviesContext from "../features/movies/store/MoviesContext";
+
+const apiUrl = import.meta.env.VITE_API_URL;
 
 const useMoviesApi = () => {
-  const { loadMovies } = useContext(MoviesContext);
-
-  const apiUrl = "https://api-ghiblipedia.onrender.com/items";
-
-  const getMovies = useCallback(async () => {
+  const getMovies = async () => {
     const response = await fetch(apiUrl);
     const movies = (await response.json()) as MovieStructure[];
 
-    const filterMovies = movies.map(
+    const filteredMovies = movies.map(
       (movie): MovieStructureFiltered => ({
         movieBanner: movie.movie_banner,
         id: movie.id,
@@ -26,8 +22,8 @@ const useMoviesApi = () => {
       }),
     );
 
-    loadMovies(filterMovies);
-  }, [apiUrl, loadMovies]);
+    return filteredMovies;
+  };
 
   return {
     getMovies,
