@@ -32,7 +32,9 @@ const NavigationStyled = styled.nav`
   .icon__text {
     font-family: ${({ theme }) => theme.typography.serif};
     font-size: 1rem;
-    /* padding-left: 2px; */
+    &.add {
+      padding-left: 3px;
+    }
   }
 `;
 

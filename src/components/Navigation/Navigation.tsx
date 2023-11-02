@@ -29,7 +29,7 @@ const NavigationBar = (): React.ReactElement => {
                 pathname === "/add" ? "add-active-icon" : "add-icon"
               }.svg`}
             />
-            <span className="icon__text">Add</span>
+            <span className="icon__text add">Add</span>
           </NavLink>
         </li>
       </ul>
