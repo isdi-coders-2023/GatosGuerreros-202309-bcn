@@ -23,6 +23,16 @@ const LoadingScreenStyled = styled.div`
       width: auto;
     }
   }
+
+  @media (prefers-reduced-motion) {
+    .loading-screen {
+      &__spinner img {
+        height: 48.75vw;
+        width: auto;
+        content: url("/images/loading-image-no-animations.png");
+      }
+    }
+  }
 `;
 
 export default LoadingScreenStyled;
