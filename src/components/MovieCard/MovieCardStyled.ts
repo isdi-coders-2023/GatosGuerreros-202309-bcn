@@ -16,14 +16,22 @@ const MovieCardStyled = styled.article`
       border-radius: ${({ theme }) => theme.borderRadius};
     }
 
-    &__info {
+    &__footer {
+      display: flex;
+      justify-content: space-between;
+      gap: 8px;
+      align-items: center;
       position: absolute;
       width: 100%;
       height: 30%;
       top: 70%;
-      padding: 5px;
+      padding: 16px;
       background-color: rgba(0, 0, 0, 0.4);
       border-radius: 0px 0px 5px 5px;
+    }
+
+    &__info {
+      //
     }
 
     &__title {
