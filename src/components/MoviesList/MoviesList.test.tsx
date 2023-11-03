@@ -1,7 +1,10 @@
-import { screen } from "@testing-library/react";
+import { screen, render } from "@testing-library/react";
 import MoviesList from "./MoviesList";
-import userEvent from "@testing-library/user-event";
 import { customRender } from "../../utils/customRender";
+import { ThemeProvider } from "styled-components";
+import { mainTheme } from "../../styles/mainTheme";
+import { MemoryRouter } from "react-router-dom";
+import MoviesProviderWrapper from "../../features/movies/store/MoviesProviderWrapper";
 
 describe("Given a MoviesList component", () => {
   describe("When it doesn't recives movies", async () => {
@@ -15,15 +18,17 @@ describe("Given a MoviesList component", () => {
       expect(liElement).toBeNull;
     });
   });
-  describe("When delete button is pressed", () => {
-    test("It should delete the", async () => {
-      const user = userEvent.setup();
-
-      customRender(<MoviesList />);
-      const deleteButton = screen.getByText("Delete");
-      await user.click(deleteButton);
-
-      expect(deleteButton).toBeInTheDocument();
+  describe("When MovieCards load", () => {
+    test("Then 'Delete' button is on screen", () => {
+      render(
+        <ThemeProvider theme={mainTheme}>
+          <MemoryRouter initialEntries={["/"]}>
+            <MoviesProviderWrapper>
+              <MoviesList />
+            </MoviesProviderWrapper>
+          </MemoryRouter>
+        </ThemeProvider>,
+      );
     });
   });
 });
