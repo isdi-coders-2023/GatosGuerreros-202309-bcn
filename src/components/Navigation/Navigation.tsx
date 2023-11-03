@@ -10,6 +10,8 @@ const NavigationBar = (): React.ReactElement => {
         <li className="nav-icon">
           <NavLink className="nav-icon__element" to="/home">
             <img
+              width="30px"
+              height="27px"
               className="nav-icon__home"
               alt="Home Icon"
               src={`images/icons/${
@@ -22,6 +24,8 @@ const NavigationBar = (): React.ReactElement => {
         <li className="nav-icon">
           <NavLink className="nav-icon__element" to="/add">
             <img
+              width="27px"
+              height="27px"
               className="nav-icon__add"
               alt="Home Icon"
               src={`images/icons/${
