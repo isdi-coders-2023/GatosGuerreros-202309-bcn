@@ -1,14 +1,19 @@
+import { useContext } from "react";
 import { MovieStructureFiltered } from "../../features/movies/types";
 import Button from "../Button/Button";
 import MovieCardStyled from "./MovieCardStyled";
+import MoviesContext from "../../features/movies/store/MoviesContext";
 
 interface MovieCardProps {
   movieCard: MovieStructureFiltered;
+  movie: MovieStructureFiltered;
 }
-
 const MovieCard = ({
   movieCard: { title, movieBanner, director },
+  movie,
 }: MovieCardProps): React.ReactElement => {
+  const { removeMovie } = useContext(MoviesContext);
+
   return (
     <MovieCardStyled className="movie-card">
       <img
@@ -26,9 +31,7 @@ const MovieCard = ({
         <Button
           className={"button--card-button"}
           text={"Delete"}
-          actionOnClick={function (): void {
-            throw new Error("Function not implemented.");
-          }}
+          actionOnClick={() => removeMovie(movie)}
         ></Button>
       </div>
     </MovieCardStyled>

@@ -2,7 +2,7 @@ import ButtonStyled from "./ButtonStyled";
 interface ButtonProps {
   className: string;
   text: string;
-  actionOnClick: () => void;
+  actionOnClick?: () => void;
 }
 
 const Button = ({
