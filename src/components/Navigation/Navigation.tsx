@@ -13,7 +13,7 @@ const NavigationBar = (): React.ReactElement => {
               className="nav-icon__home"
               alt="Home Icon"
               src={`images/icons/${
-                pathname === "/home" ? "home-active-icon" : "home-icon"
+                pathname === "/home" ? "homeActiveIcon" : "homeIcon"
               }.svg`}
             />
             <span className="nav-icon__text">Home</span>
@@ -25,7 +25,7 @@ const NavigationBar = (): React.ReactElement => {
               className="nav-icon__add"
               alt="Home Icon"
               src={`images/icons/${
-                pathname === "/add" ? "add-active-icon" : "add-icon"
+                pathname === "/add" ? "addActiveIcon" : "addIcon"
               }.svg`}
             />
             <span className="nav-icon__text add">Add</span>

@@ -23,7 +23,7 @@ const HomePage = (): React.ReactElement => {
     <HomePageStyled>
       <section className="hero">
         <img
-          src="/images/homepage-hero.webp"
+          src="/images/homepageHero.webp"
           alt="Chihiro looking to the horizon"
           width={320}
           height={652}
@@ -34,7 +34,7 @@ const HomePage = (): React.ReactElement => {
         </h2>
         <img
           className="hero__symbol "
-          src="/images/icons/scroll-down-symbol.webp"
+          src="/images/icons/scrollDownSymbol.webp"
           alt="scroll down to find the movies list"
           width={60}
           height={57.6}
