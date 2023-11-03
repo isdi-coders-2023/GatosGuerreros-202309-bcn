@@ -20,12 +20,13 @@ const Footer = ({ text }: FooterProps): React.ReactElement => {
             className="footer__icon"
           />
         </a>
-
         <a
           className="footer__social-media-link"
           href="https://www.facebook.com/"
         >
           <img
+            width="30px"
+            height="30px"
             src="/images/icons/facebookLogo.svg"
             alt="Facebook logo"
             aria-label="Facebook logo that redirects to our Facebook page"
