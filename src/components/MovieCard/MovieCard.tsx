@@ -3,16 +3,30 @@ import { MovieStructureFiltered } from "../../features/movies/types";
 import Button from "../Button/Button";
 import MovieCardStyled from "./MovieCardStyled";
 import MoviesContext from "../../features/movies/store/MoviesContext";
+import useMoviesApi from "../../hooks/useMoviesApi";
+import { renderHook } from "@testing-library/react";
 
 interface MovieCardProps {
   movieCard: MovieStructureFiltered;
   movie: MovieStructureFiltered;
 }
+
+const { result } = renderHook(() => useMoviesApi());
+
 const MovieCard = ({
   movieCard: { title, movieBanner, director },
   movie,
 }: MovieCardProps): React.ReactElement => {
   const { removeMovie } = useContext(MoviesContext);
+
+  const onClick = async (movie: MovieStructureFiltered) => {
+    const movieId = movie.id;
+    const coso = await result.current.removeMovieFromApi(movieId);
+    if (!coso) {
+      return;
+    }
+    removeMovie(movie);
+  };
 
   return (
     <MovieCardStyled className="movie-card">
@@ -31,7 +45,7 @@ const MovieCard = ({
         <Button
           className={"button--card-button"}
           text={"Delete"}
-          actionOnClick={() => removeMovie(movie)}
+          actionOnClick={() => onClick(movie)}
         ></Button>
       </div>
     </MovieCardStyled>

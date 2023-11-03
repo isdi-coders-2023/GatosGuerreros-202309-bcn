@@ -26,8 +26,20 @@ const useMoviesApi = () => {
     return filteredMovies;
   }, []);
 
+  const removeMovieFromApi = useCallback(async (movieId: number) => {
+    const response = await fetch(`${apiUrl}/${movieId}`, {
+      method: "DELETE",
+    });
+
+    if (response.status !== 200) {
+      return false;
+    }
+    return true;
+  }, []);
+
   return {
     getMovies,
+    removeMovieFromApi,
   };
 };
 
