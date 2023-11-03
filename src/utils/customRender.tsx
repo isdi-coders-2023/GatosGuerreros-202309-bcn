@@ -1,4 +1,4 @@
-import React, { ReactElement } from "react";
+import { ReactElement } from "react";
 import { render, RenderOptions } from "@testing-library/react";
 import { ThemeProvider } from "styled-components";
 import { mainTheme } from "../styles/mainTheme";
@@ -11,7 +11,7 @@ export const customRender = (
   ui: ReactElement,
   options?: Omit<RenderOptions, "wrapper">,
 ) => {
-  const AllTheProviders = ({ children }: { children: React.ReactNode }) => {
+  const AllTheProviders = ({ children }: { children: JSX.Element }) => {
     return (
       <UiContextWrapper>
         <MovieProviderWrapper>
