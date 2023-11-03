@@ -3,10 +3,13 @@ import MoviesContext from "../features/movies/store/MoviesContext";
 import MoviesList from "../components/MoviesList/MoviesList";
 import HomePageStyled from "./HomePageStyled";
 import useMoviesApi from "../hooks/useMoviesApi";
+import UiContext from "../features/ui/store/UiContext";
+import LoadingScreen from "../components/LoadingScreen/LoadingScreen";
 
 const HomePage = (): React.ReactElement => {
   const { loadMovies } = useContext(MoviesContext);
   const { getMovies } = useMoviesApi();
+  const { isLoading } = useContext(UiContext);
 
   useEffect(() => {
     (async () => {
@@ -20,7 +23,7 @@ const HomePage = (): React.ReactElement => {
     <HomePageStyled>
       <section className="hero">
         <img
-          src="/images/homepage-hero.webp"
+          src="/images/homepageHero.webp"
           alt="Chihiro looking to the horizon"
           width={320}
           height={652}
@@ -31,13 +34,14 @@ const HomePage = (): React.ReactElement => {
         </h2>
         <img
           className="hero__symbol "
-          src="/images/icons/scroll-down-symbol.webp"
+          src="/images/icons/scrollDownSymbol.webp"
           alt="scroll down to find the movies list"
           width={60}
           height={57.6}
         />
       </section>
       <section className="main-container">
+        {isLoading && <LoadingScreen />}
         <MoviesList />
       </section>
     </HomePageStyled>

@@ -1,4 +1,6 @@
 import { useCallback } from "react";
+import { useLoading } from "./useLoading";
+
 import {
   MovieStructure,
   MovieStructureFiltered,
@@ -7,7 +9,10 @@ import {
 const apiUrl = import.meta.env.VITE_API_URL;
 
 const useMoviesApi = () => {
+  const { activateLoading, disableLoading } = useLoading();
+
   const getMovies = useCallback(async () => {
+    activateLoading();
     const response = await fetch(apiUrl);
     const movies = (await response.json()) as MovieStructure[];
 
@@ -22,9 +27,9 @@ const useMoviesApi = () => {
         runningTime: movie.running_time,
       }),
     );
-
+    disableLoading();
     return filteredMovies;
-  }, []);
+  }, [activateLoading, disableLoading]);
 
   const removeMovieFromApi = useCallback(async (movieId: number) => {
     const response = await fetch(`${apiUrl}/${movieId}`, {

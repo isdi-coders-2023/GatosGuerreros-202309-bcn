@@ -15,18 +15,19 @@ const Footer = ({ text }: FooterProps): React.ReactElement => {
             alt="Instagram logo"
             width="30px"
             height="30px"
-            src="/images/icons/instagram-logo.svg"
+            src="/images/icons/instagramLogo.svg"
             aria-label="Instagram logo that redirects to our Instagram page"
             className="footer__icon"
           />
         </a>
-
         <a
           className="footer__social-media-link"
           href="https://www.facebook.com/"
         >
           <img
-            src="/images/icons/facebook-logo.svg"
+            width="30px"
+            height="30px"
+            src="/images/icons/facebookLogo.svg"
             alt="Facebook logo"
             aria-label="Facebook logo that redirects to our Facebook page"
             className="footer__icon"
@@ -36,7 +37,7 @@ const Footer = ({ text }: FooterProps): React.ReactElement => {
           <img
             width="30px"
             height="30px"
-            src="/images/icons/x-logo.svg"
+            src="/images/icons/xLogo.svg"
             alt="X logo"
             aria-label="X (formerly Twitter) logo that redirects to our X page"
             className="footer__icon"
