@@ -13,7 +13,7 @@ const mainTheme: DefaultTheme = {
     danger: "#af4f4c",
     primary: "#fdfdf9",
     secondary: "#295e60",
-    teriary: "#eefeff",
+    tertiary: "#eefeff",
     success: "#fdfdf9",
     cardButton: "#307E82",
   },

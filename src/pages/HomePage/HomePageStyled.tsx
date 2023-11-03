@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 const HomePageStyled = styled.section`
-  background-color: ${({ theme }) => theme.colors.teriary};
+  background-color: ${({ theme }) => theme.colors.tertiary};
 
   .main-container {
     padding: 0 16px;

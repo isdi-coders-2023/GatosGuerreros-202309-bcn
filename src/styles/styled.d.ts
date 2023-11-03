@@ -8,7 +8,7 @@ declare module "styled-components" {
     colors: {
       primary: string;
       secondary: string;
-      teriary: string;
+      tertiary: string;
       accent: string;
       success: string;
       danger: string;
