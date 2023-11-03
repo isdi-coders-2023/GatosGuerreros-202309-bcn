@@ -1,10 +1,9 @@
-import { screen, render } from "@testing-library/react";
+import { screen } from "@testing-library/react";
 import MoviesList from "./MoviesList";
 import { customRender } from "../../utils/customRender";
-import { ThemeProvider } from "styled-components";
-import { mainTheme } from "../../styles/mainTheme";
-import { MemoryRouter } from "react-router-dom";
-import MoviesProviderWrapper from "../../features/movies/store/MoviesProviderWrapper";
+
+import HomePage from "../../pages/HomePage";
+import userEvent from "@testing-library/user-event";
 
 describe("Given a MoviesList component", () => {
   describe("When it doesn't recives movies", async () => {
@@ -19,16 +18,17 @@ describe("Given a MoviesList component", () => {
     });
   });
   describe("When MovieCards load", () => {
-    test("Then 'Delete' button is on screen", () => {
-      render(
-        <ThemeProvider theme={mainTheme}>
-          <MemoryRouter initialEntries={["/"]}>
-            <MoviesProviderWrapper>
-              <MoviesList />
-            </MoviesProviderWrapper>
-          </MemoryRouter>
-        </ThemeProvider>,
+    test("Then 'Delete' button is on screen", async () => {
+      const user = userEvent.setup();
+      customRender(
+        <>
+          <HomePage />
+          <MoviesList />
+        </>,
       );
+      const deleteButton = await screen.findAllByRole("button");
+      await user.click(deleteButton[0]);
+      expect(deleteButton[0]).not.toBeInTheDocument();
     });
   });
 });
