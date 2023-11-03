@@ -1,14 +1,32 @@
+import { useContext } from "react";
 import { MovieStructureFiltered } from "../../features/movies/types";
 import Button from "../Button/Button";
 import MovieCardStyled from "./MovieCardStyled";
+import MoviesContext from "../../features/movies/store/MoviesContext";
+import useMoviesApi from "../../hooks/useMoviesApi";
+import { renderHook } from "@testing-library/react";
 
 interface MovieCardProps {
-  movieCard: MovieStructureFiltered;
+  movie: MovieStructureFiltered;
 }
 
+const { result } = renderHook(() => useMoviesApi());
+
 const MovieCard = ({
-  movieCard: { title, movieBanner, director },
+  movie: { title, movieBanner, director },
+  movie,
 }: MovieCardProps): React.ReactElement => {
+  const { removeMovie } = useContext(MoviesContext);
+
+  const onClick = async (movie: MovieStructureFiltered) => {
+    const movieId = movie.id;
+    const resultFromApi = await result.current.removeMovieFromApi(movieId);
+    if (!resultFromApi) {
+      return;
+    }
+    removeMovie(movie);
+  };
+
   return (
     <MovieCardStyled className="movie-card">
       <img
@@ -26,9 +44,7 @@ const MovieCard = ({
         <Button
           className={"button--card-button"}
           text={"Delete"}
-          actionOnClick={function (): void {
-            throw new Error("Function not implemented.");
-          }}
+          actionOnClick={() => onClick(movie)}
         ></Button>
       </div>
     </MovieCardStyled>
