@@ -2,10 +2,9 @@ import { useContext, useEffect } from "react";
 import MoviesContext from "../../features/movies/store/MoviesContext";
 import MoviesList from "../../components/MoviesList/MoviesList";
 import HomePageStyled from "./HomePageStyled";
-import useMoviesApi from "../hooks/useMoviesApi";
-import UiContext from "../features/ui/store/UiContext";
-import LoadingScreen from "../components/LoadingScreen/LoadingScreen";
-
+import useMoviesApi from "../../hooks/useMoviesApi";
+import UiContext from "../../features/ui/store/UiContext";
+import LoadingScreen from "../../components/LoadingScreen/LoadingScreen";
 const HomePage = (): React.ReactElement => {
   const { loadMovies } = useContext(MoviesContext);
   const { getMovies } = useMoviesApi();
