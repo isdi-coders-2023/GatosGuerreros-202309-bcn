@@ -3,10 +3,13 @@ import MoviesContext from "../features/movies/store/MoviesContext";
 import MoviesList from "../components/MoviesList/MoviesList";
 import HomePageStyled from "./HomePageStyled";
 import useMoviesApi from "../hooks/useMoviesApi";
+import UiContext from "../features/ui/store/UiContext";
+import LoadingScreen from "../components/LoadingScreen/LoadingScreen";
 
 const HomePage = (): React.ReactElement => {
   const { loadMovies } = useContext(MoviesContext);
   const { getMovies } = useMoviesApi();
+  const { isLoading } = useContext(UiContext);
 
   useEffect(() => {
     (async () => {
@@ -38,6 +41,7 @@ const HomePage = (): React.ReactElement => {
         />
       </section>
       <section className="main-container">
+        {isLoading && <LoadingScreen />}
         <MoviesList />
       </section>
     </HomePageStyled>
