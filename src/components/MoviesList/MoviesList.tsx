@@ -10,7 +10,7 @@ const MoviesList = (): React.ReactElement => {
     <MoviesListStyled className="movies-list">
       {movies.map((movie) => (
         <li key={movie.id}>
-          <MovieCard movie={movie} />
+          <MovieCard movieCard={movie} />
         </li>
       ))}
     </MoviesListStyled>
