@@ -1,10 +1,11 @@
 import { useContext, useEffect } from "react";
-import MoviesContext from "../../features/movies/store/MoviesContext";
-import MoviesList from "../../components/MoviesList/MoviesList";
+import MoviesContext from "../features/movies/store/MoviesContext";
+import MoviesList from "../components/MoviesList/MoviesList";
 import HomePageStyled from "./HomePageStyled";
-import useMoviesApi from "../../hooks/useMoviesApi";
-import UiContext from "../../features/ui/store/UiContext";
-import LoadingScreen from "../../components/LoadingScreen/LoadingScreen";
+import useMoviesApi from "../hooks/useMoviesApi";
+import UiContext from "../features/ui/store/UiContext";
+import LoadingScreen from "../components/LoadingScreen/LoadingScreen";
+
 const HomePage = (): React.ReactElement => {
   const { loadMovies } = useContext(MoviesContext);
   const { getMovies } = useMoviesApi();
@@ -24,19 +25,19 @@ const HomePage = (): React.ReactElement => {
         <img
           src="/images/homepageHero.webp"
           alt="Chihiro looking to the horizon"
-          width="320"
-          height="652"
+          width={320}
+          height={652}
           className="hero__image"
         />
-        <span className="hero__text main-container">
+        <h2 className="hero__text main-container">
           The most curated repository of all Studio Ghibli films
-        </span>
+        </h2>
         <img
           className="hero__symbol "
           src="/images/icons/scrollDownSymbol.webp"
           alt="scroll down to find the movies list"
-          width="60"
-          height="60"
+          width={60}
+          height={57.6}
         />
       </section>
       <section className="main-container">

@@ -2,7 +2,7 @@ import { screen } from "@testing-library/react";
 import MoviesList from "./MoviesList";
 import { customRender } from "../../utils/customRender";
 
-import HomePage from "../../pages/HomePage/HomePage";
+import HomePage from "../../pages/HomePage";
 import userEvent from "@testing-library/user-event";
 
 describe("Given a MoviesList component", () => {
