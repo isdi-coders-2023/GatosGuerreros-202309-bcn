@@ -1,8 +1,9 @@
 import { Navigate, Route, Routes } from "react-router-dom";
-import HomePage from "../../pages/HomePage";
+import { useEffect } from "react";
+import HomePage from "../../pages/HomePage/HomePage";
 import Header from "../Header/Header";
 import useMoviesApi from "../../hooks/useMoviesApi";
-import { useEffect } from "react";
+import NotFoundPage from "../../pages/NotFoundPage/NotFoundPage";
 
 const App = (): React.ReactElement => {
   const { getMovies } = useMoviesApi();
@@ -19,6 +20,7 @@ const App = (): React.ReactElement => {
       <Routes>
         <Route path="/" element={<Navigate to="/home" />} />
         <Route path="/home" element={<HomePage />} />
+        <Route path="*" element={<NotFoundPage />} />
       </Routes>
     </>
   );
