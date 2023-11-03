@@ -1,6 +1,7 @@
 import { renderHook } from "@testing-library/react";
 import { MovieStructureFiltered } from "../features/movies/types";
 import useMoviesApi from "./useMoviesApi";
+import UiContextWrapper from "../features/ui/store/UiContextWrapper";
 
 describe("Given hook 'useMovieApi' ", () => {
   describe("when it's fetching from Api", async () => {
@@ -29,10 +30,16 @@ describe("Given hook 'useMovieApi' ", () => {
           runningTime: "89",
         },
       ];
-      const { result } = renderHook(() => useMoviesApi());
+
+      const { result } = renderHook(() => useMoviesApi(), {
+        wrapper: ({ children }) => (
+          <UiContextWrapper>{children}</UiContextWrapper>
+        ),
+      });
 
       const loadMovies = async () => {
         const movies = await result.current.getMovies();
+
         return movies;
       };
 
