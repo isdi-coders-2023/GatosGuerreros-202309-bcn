@@ -10,7 +10,7 @@ export const customRender = (
   ui: ReactElement,
   options?: Omit<RenderOptions, "wrapper">,
 ) => {
-  const AllTheProviders = ({ children }: { children: React.ReactNode }) => {
+  const AllTheProviders = ({ children }: { children: JSX.Element }) => {
     return (
       <MovieProviderWrapper>
         <ThemeProvider theme={mainTheme}>
