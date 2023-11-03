@@ -1,6 +1,5 @@
 import NavigationStyled from "./NavigationStyled";
-import { NavLink } from "react-router-dom";
-import { useLocation } from "react-router-dom";
+import { NavLink, useLocation } from "react-router-dom";
 
 const NavigationBar = (): React.ReactElement => {
   const { pathname } = useLocation();
@@ -8,28 +7,32 @@ const NavigationBar = (): React.ReactElement => {
   return (
     <NavigationStyled>
       <ul className="nav__icons">
-        <li className="icon__container">
-          <NavLink className="nav__icon" to="/home">
+        <li className="nav-icon">
+          <NavLink className="nav-icon__element" to="/home">
             <img
-              className="home__icon"
+              width="30px"
+              height="27px"
+              className="nav-icon__home"
               alt="Home Icon"
               src={`images/icons/${
-                pathname === "/home" ? "home-active-icon" : "home-icon"
+                pathname === "/home" ? "homeActiveIcon" : "homeIcon"
               }.svg`}
             />
-            <span className="icon__text">Home</span>
+            <span className="nav-icon__text">Home</span>
           </NavLink>
         </li>
-        <li className="icon__container">
-          <NavLink className="nav__icon" to="/add">
+        <li className="nav-icon">
+          <NavLink className="nav-icon__element" to="/add">
             <img
-              className="home__icon"
+              width="27px"
+              height="27px"
+              className="nav-icon__add"
               alt="Home Icon"
               src={`images/icons/${
-                pathname === "/add" ? "add-active-icon" : "add-icon"
+                pathname === "/add" ? "addActiveIcon" : "addIcon"
               }.svg`}
             />
-            <span className="icon__text add">Add</span>
+            <span className="nav-icon__text add">Add</span>
           </NavLink>
         </li>
       </ul>

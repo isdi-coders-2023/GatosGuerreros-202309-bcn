@@ -2,38 +2,28 @@ import { useContext, useEffect } from "react";
 import MoviesContext from "../../features/movies/store/MoviesContext";
 import MoviesList from "../../components/MoviesList/MoviesList";
 import HomePageStyled from "./HomePageStyled";
+import useMoviesApi from "../hooks/useMoviesApi";
+import UiContext from "../features/ui/store/UiContext";
+import LoadingScreen from "../components/LoadingScreen/LoadingScreen";
 
 const HomePage = (): React.ReactElement => {
   const { loadMovies } = useContext(MoviesContext);
+  const { getMovies } = useMoviesApi();
+  const { isLoading } = useContext(UiContext);
+
   useEffect(() => {
-    loadMovies([
-      {
-        description: "",
-        director: "Hayao Miyazaki",
-        id: 1,
-        title: "My Neighbor Totoro",
-        releaseDate: "",
-        runningTime: "",
-        movieBanner:
-          "https://image.tmdb.org/t/p/original/etqr6fOOCXQOgwrQXaKwenTSuzx.jpg",
-      },
-      {
-        description: "",
-        director: "Isao Takahata",
-        id: 2,
-        title: "Only Yesterday",
-        releaseDate: "",
-        runningTime: "",
-        movieBanner:
-          "https://image.tmdb.org/t/p/w533_and_h300_bestv2/isCrlWWI4JrdLKAUAwFb5cjAsH4.jpg",
-      },
-    ]);
-  }, [loadMovies]);
+    (async () => {
+      const actualMovies = await getMovies();
+
+      loadMovies(await actualMovies);
+    })();
+  }, [getMovies, loadMovies]);
+
   return (
     <HomePageStyled>
       <section className="hero">
         <img
-          src="/images/homepage-hero.webp"
+          src="/images/homepageHero.webp"
           alt="Chihiro looking to the horizon"
           width="320"
           height="652"
@@ -44,13 +34,14 @@ const HomePage = (): React.ReactElement => {
         </span>
         <img
           className="hero__symbol "
-          src="/images/icons/scroll-down-symbol.webp"
+          src="/images/icons/scrollDownSymbol.webp"
           alt="scroll down to find the movies list"
           width="60"
           height="60"
         />
       </section>
       <section className="main-container">
+        {isLoading && <LoadingScreen />}
         <MoviesList />
       </section>
     </HomePageStyled>
