@@ -1,15 +1,6 @@
 import { HttpResponse, http } from "msw";
 
 export const handlers = [
-  http.delete(
-    "https://api-ghiblipedia.onrender.com/items/:id",
-    ({ params }) => {
-      const { id } = params;
-      console.log(id);
-
-      return HttpResponse.json({ status: 200 });
-    },
-  ),
   http.get("https://api-ghiblipedia.onrender.com/items", () => {
     return HttpResponse.json([
       {

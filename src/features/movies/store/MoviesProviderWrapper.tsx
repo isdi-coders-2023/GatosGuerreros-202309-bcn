@@ -11,14 +11,9 @@ const MoviesProviderWrapper = ({
     setMovies(movies);
   }, []);
 
-  const removeMovie = useCallback((movie: MovieStructureFiltered) => {
-    const movieId = movie.id;
-    setMovies((movies) => movies.filter((movie) => movie.id !== movieId));
-  }, []);
-
   const moviesContextValue = useMemo(
-    () => ({ movies, loadMovies, removeMovie }),
-    [loadMovies, removeMovie, movies],
+    () => ({ movies, loadMovies }),
+    [loadMovies, movies],
   );
   return (
     <MoviesContext.Provider value={moviesContextValue}>
