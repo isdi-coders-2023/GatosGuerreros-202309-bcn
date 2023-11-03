@@ -1,3 +1,4 @@
+import { useCallback } from "react";
 import {
   MovieStructure,
   MovieStructureFiltered,
@@ -6,7 +7,7 @@ import {
 const apiUrl = import.meta.env.VITE_API_URL;
 
 const useMoviesApi = () => {
-  const getMovies = async () => {
+  const getMovies = useCallback(async () => {
     const response = await fetch(apiUrl);
     const movies = (await response.json()) as MovieStructure[];
 
@@ -23,7 +24,7 @@ const useMoviesApi = () => {
     );
 
     return filteredMovies;
-  };
+  }, []);
 
   return {
     getMovies,

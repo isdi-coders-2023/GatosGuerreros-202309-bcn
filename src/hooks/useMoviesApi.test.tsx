@@ -1,8 +1,9 @@
+import { renderHook } from "@testing-library/react";
 import { MovieStructureFiltered } from "../features/movies/types";
 import useMoviesApi from "./useMoviesApi";
 
 describe("Given hook 'useMovieApi' ", () => {
-  describe("when it's fetching from Api", () => {
+  describe("when it's fetching from Api", async () => {
     test("Then first position of the array should be title: Castle in the Sky", async () => {
       const expectedMovies: MovieStructureFiltered[] = [
         {
@@ -28,12 +29,16 @@ describe("Given hook 'useMovieApi' ", () => {
           runningTime: "89",
         },
       ];
+      const { result } = renderHook(() => useMoviesApi());
 
-      const { getMovies } = useMoviesApi();
+      const loadMovies = async () => {
+        const movies = await result.current.getMovies();
+        return movies;
+      };
 
-      const currentMovies = await getMovies();
+      const movies = await loadMovies();
 
-      expect(currentMovies).toStrictEqual(expectedMovies);
+      expect(movies).toStrictEqual(expectedMovies);
     });
   });
 });
